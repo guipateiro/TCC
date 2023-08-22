@@ -8,8 +8,7 @@ for i in range(0, tam):
 
 with open('saida.test', 'w') as f: 
     for i in range(0, tam):
-        binario = format(i, '011b')
-        if binario.count('1') % 2 == 0:
+        if i < 1500:
             print(1, file = f)
         else:
-            print(0, file = f)        
+            print(0, file = f)    

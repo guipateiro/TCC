@@ -1,5 +1,5 @@
 LDFLAGS = -pthread -lpthread
-CFLAGS = -g -Wall -Werror
+CFLAGS = -Wall 
 backprop: backprop.o layer.o neuron.o
 	$(CC) $(LDFLAGS) -o backprop main.o layer.o neuron.o -lm
 

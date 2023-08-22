@@ -1,0 +1,1 @@
+diff saida.test saida.prog | wc -l 

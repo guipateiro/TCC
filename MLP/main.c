@@ -17,7 +17,7 @@ int n=1;
 int main(void)
 {
     int i;
-    FILE *inp = fopen("entrada.in","r");
+    FILE *inp = fopen("entrada3.in","r");
     srand(time(0));
 
     printf("Enter the number of Layers in Neural Network:\n");
@@ -219,49 +219,7 @@ int initialize_weights(void)
     return SUCCESS_INIT_WEIGHTS;
 }
 
-// Train Neural Network
-void train_neural_net(void)
-{
-    int i;
-    int it=0;
-
-    // Gradient Descent
-    for(it=0;it<20000;it++)
-    {
-        for(i=0;i<num_training_ex;i++)
-        {
-            feed_input(i);
-            forward_prop();
-            compute_cost(i);
-            back_prop(i);
-            update_weights();
-        }
-    }
-}
-
-
-
-void update_weights(void)
-{
-    int i,j,k;
-
-    for(i=0;i<num_layers-1;i++)
-    {
-        for(j=0;j<num_neurons[i];j++)
-        {
-            for(k=0;k<num_neurons[i+1];k++)
-            {
-                // Update Weights
-                lay[i].neu[j].out_weights[k] = (lay[i].neu[j].out_weights[k]) - (alpha * lay[i].neu[j].dw[k]);
-            }
-            
-            // Update Bias
-            lay[i].neu[j].bias = lay[i].neu[j].bias - (alpha * lay[i].neu[j].dbias);
-        }
-    }   
-}
-
-void forward_prop(void)
+float forward_prop(void)
 {
     int i,j,k;
 
@@ -296,11 +254,77 @@ void forward_prop(void)
                 lay[i].neu[j].actv = 1/(1+exp(-lay[i].neu[j].z));
                 // fazer com que o a funcao retorne o esse valor pra facilitar a impressao
                 //printf("Output: %d\n", (int)round(lay[i].neu[j].actv));
-                printf("%d\n", (int)round(lay[i].neu[j].actv));
+                //printf("%d\n", (int)round(lay[i].neu[j].actv));
                 //printf("\n");
             }
         }
     }
+    return (int)round(lay[i-1].neu[j-1].actv);
+}
+
+float testSucessRate(){
+    float k = 0;
+    //while(1)
+    for(int i = 0; i < num_training_ex; i++)
+    {
+        //printf("Enter input to test:\n");
+        for(int j=0;j<num_neurons[0];j++)
+        {
+        lay[0].neu[j].actv = input[i][j];
+        //printf("Input: %f\n",lay[0].neu[j].actv);
+        }
+        if (desired_outputs[i][0] == forward_prop()){
+            //printf("acertou");
+            k++;
+        }
+    }
+    return k/num_training_ex;
+}
+
+// Train Neural Network
+void train_neural_net(void)
+{
+    int i;
+    int it=0;
+
+    // Gradient Descent
+    while (testSucessRate() < 0.95)
+    {
+        for(it=0;it<1000;it++)
+        {
+            for(i=0;i<num_training_ex;i++)
+            {
+                feed_input(i);
+                forward_prop();
+                compute_cost(i);
+                back_prop(i);
+                update_weights();
+            }
+        }
+    printf("Sucess rate: %0.2f%%\n", testSucessRate() * 100.0);
+    }
+}
+
+
+
+void update_weights(void)
+{
+    int i,j,k;
+
+    for(i=0;i<num_layers-1;i++)
+    {
+        for(j=0;j<num_neurons[i];j++)
+        {
+            for(k=0;k<num_neurons[i+1];k++)
+            {
+                // Update Weights
+                lay[i].neu[j].out_weights[k] = (lay[i].neu[j].out_weights[k]) - (alpha * lay[i].neu[j].dw[k]);
+            }
+            
+            // Update Bias
+            lay[i].neu[j].bias = lay[i].neu[j].bias - (alpha * lay[i].neu[j].dbias);
+        }
+    }   
 }
 
 // Compute Total Cost
@@ -375,7 +399,7 @@ void test_nn(void)
 {
     int i;
     //while(1)
-    for(int j = 0; j < 256; j++)
+    for(int j = 0; j < 2047; j++)
     {
         printf("Enter input to test:\n");
 
@@ -385,7 +409,7 @@ void test_nn(void)
             //printf("%f ",lay[0].neu[i].actv);
             
         }
-        forward_prop();
+        fprintf(stderr,"%i\n",(int)forward_prop());
     }
 }
 
