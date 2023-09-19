@@ -1,0 +1,41 @@
+# experimentos
+
+## MLP par/impar com mascara 3 
+(colocado uma mascara de 3 bits predefinida nos bits dos numeros pares, e nos testes dos numeros impares)
+- localido na pasta /mascara3
+- rodado com tamanho de camada de 1 a 18 #
+- rodado 20 vezes por numero de camada #
+
+## MLP par/impar com mascara 5 
+(colocado uma mascara de 5 bits predefinida nos bits dos numeros pares, e nos testes dos numeros impares)
+- localido na pasta /mascara5
+- rodado com tamanho de camada de 1 a 18
+- rodado 20 vezes por numero de camada
+
+## MLP par/impar com mascara 7
+(colocado uma mascara de 7 bits predefinida nos bits dos numeros pares, e nos testes dos numeros impares)
+- localido na pasta /mascara7 
+- rodado com tamanho de camada de 1 a 18 #
+- rodado 20 vezes por numero de camada #
+
+## perceptrom (mlp sem camadas intermediarias) par/impar mascara 5
+(colocado uma mascara de 5 bits predefinida nos bits dos numeros pares, e nos testes dos numeros impares, sem camcadas intermediarias)
+- localido na pasta /perceptron
+- rodado 20 vezes
+
+## MLP par/impar com mascara 5 com mudança de bit 
+()
+- localido na pasta /bit_change
+- rodado com tamanho de camada de 1, 5 ,10 ,15 ,18
+- rodado 20 vezes por numero de camada#
+
+## MLP par/impar com mascara 5 com inversão de mascara 
+- localido na pasta /masc_invert
+
+## MLP par/impar com mascara 5 e 2 bits de controle
+
+## MLP par/impar com mascara 7 e 2 bits de controle
+
+## MLP par/impar com mascara 5 esparsa 
+
+## MLP par/impar com mascara 5 esparsa e bit de detecção no meio
