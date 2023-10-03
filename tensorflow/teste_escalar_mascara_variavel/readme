@@ -1,0 +1,9 @@
+## teste escalar com mascara gigante varaivel
+
+entrada de 109 bits, com mascara de 16, 32,48,64, 80 bits 
+tamanho fixo de 50 neuronios,
+
+### conclusão
+
+ate 32 bits a precisao fica muito alta, depois ha semelhanca com os tamanhos 3 e 5 nos tamanhos 48 e 80
+

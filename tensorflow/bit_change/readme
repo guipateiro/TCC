@@ -1,0 +1,19 @@
+## bit change
+
+### conclusão:
+
+- a mascara tem um sistema de detecção que se baseia em 1 1 0 1 0
+nessa mascara, os numeros 0 tem peso muito maior que os 0
+
+ [-0.14213915]
+ [-0.13010216]
+ [ 1.1494043 ]
+ [-0.13103351]
+ [ 1.0520786 ]
+ [-2.9445038 ]
+
+como nesse exemplo, os valores "desconsideravies, estao > 0,2 
+os consideraveis estão < 1, o valor realemtne detectavel esta < 2,5
+
+ou seja
+o sistema esta consiederando basicamente os valores XX0X01

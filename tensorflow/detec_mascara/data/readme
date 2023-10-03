@@ -1,0 +1,13 @@
+## detect mascara
+
+### conclusão
+
+- o objetivo é detectar a mascara e nao o bit de par;impar
+
+por que nao é detectavel:
+ = desbalanceamento de bits
+ enquando os bits de mascara sao desbalanceados( 75%, 25%)
+ o ultimo bit tem precisao de 50/50, o que o torna mais facil de ser detectado, aprendido
+
+ no final ele acha que a mascara 11010 como 110101, mas ele foca em aprender o 1 final,
+ mas como do outro lado só tem XXXXX0, a unica coisa em comum é o 0 no final

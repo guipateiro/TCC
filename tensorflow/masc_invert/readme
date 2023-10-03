@@ -1,0 +1,8 @@
+## interter mascara
+
+### conclusão
+
+a ideia por tras era de interter a mascar, ou seja, 11010 no treinamento
+e 00101 no teste, a ideia seria de forcar o inverso da deteção que faria o teste ficar mais preciso
+
+em comapração ao mascara 5, nao pareceu ter resultados melhores
